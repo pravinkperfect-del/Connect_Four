@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f2eb" />
+    <title>Connect Four — 10X Arcade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="10X Arcade home">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span>10X<span class="brand-muted"> ARCADE</span></span>
+        </a>
+        <span class="edition"><span class="live-dot" id="connection-dot"></span> <span id="connection-label">CONNECTING</span></span>
+      </header>
+
+      <section class="game-layout" id="top" aria-labelledby="game-title">
+        <div class="intro-column">
+          <p class="eyebrow"><span>01</span> THE CLASSIC, CONNECTED</p>
+          <h1 id="game-title">Connect<br /><span>Four.</span></h1>
+          <p class="intro-copy">A little strategy goes a long way. Drop your discs, block your opponent, and be the first to connect four.</p>
+
+          <div class="player-card active" id="player-one-card">
+            <span class="player-token red-token" aria-hidden="true"></span>
+            <div class="player-info"><span class="player-label">PLAYER 01</span><strong>Coral</strong></div>
+            <span class="turn-indicator" aria-hidden="true">YOUR TURN</span>
+          </div>
+          <div class="player-card" id="player-two-card">
+            <span class="player-token yellow-token" aria-hidden="true"></span>
+            <div class="player-info"><span class="player-label">PLAYER 02</span><strong>Sunshine</strong></div>
+            <span class="turn-indicator" aria-hidden="true">YOUR TURN</span>
+          </div>
+
+          <div class="how-to">
+            <span class="section-label">HOW TO PLAY</span>
+            <p>Choose a column. Your disc falls to the lowest open spot. Line up four in any direction to win.</p>
+          </div>
+          <section class="lobby-card" id="lobby-card" aria-labelledby="lobby-title">
+            <span class="section-label">PLAY ONLINE</span>
+            <h2 id="lobby-title">Bring a friend.</h2>
+            <p>Create a room and share its code, or join a friend's room.</p>
+            <button class="lobby-primary" id="create-room" type="button">CREATE A ROOM <span aria-hidden="true">↗</span></button>
+            <form class="join-form" id="join-form">
+              <label for="room-code">HAVE A ROOM CODE?</label>
+              <div class="join-controls">
+                <input id="room-code" name="room-code" type="text" maxlength="6" autocomplete="off" placeholder="6-DIGIT CODE" aria-label="Six digit room code" />
+                <button type="submit" aria-label="Join room">JOIN</button>
+              </div>
+            </form>
+            <p class="lobby-feedback" id="lobby-feedback" role="status"></p>
+          </section>
+          <section class="room-card" id="room-card" hidden>
+            <span class="section-label">ROOM CODE</span>
+            <div class="room-code-line"><strong id="room-code-display">------</strong><button id="copy-code" type="button" aria-label="Copy room code">COPY</button></div>
+            <p id="room-status">Waiting for your friend to join…</p>
+            <button class="leave-room" id="leave-room" type="button">LEAVE ROOM</button>
+          </section>
+        </div>
+
+        <div class="board-column">
+          <div class="game-status" aria-live="polite">
+            <span class="status-icon" id="status-icon" aria-hidden="true">↘</span>
+            <span id="status-text">Coral’s turn</span>
+            <span class="move-count" id="move-count">MOVE 01</span>
+          </div>
+
+          <div class="board-frame">
+            <div class="column-hints" id="column-hints" aria-label="Choose a column"></div>
+          <div class="board" id="board" role="grid" aria-label="Connect Four game board, 6 rows by 7 columns"></div>
+          </div>
+
+          <div class="board-footer">
+            <span><kbd>1</kbd>–<kbd>7</kbd> DROP A DISC</span>
+            <button class="reset-button" id="reset-button" type="button" disabled><span aria-hidden="true">↻</span> NEW GAME</button>
+          </div>
+          <p class="message" id="message" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <footer class="footer"><span>THINK AHEAD. PLAY KIND.</span><span>10X SRM · WEB DEV RECRUITMENT</span></footer>
+    </main>
+  </body>
+</html>
