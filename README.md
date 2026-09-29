@@ -4,14 +4,14 @@ A responsive Connect Four game with local single-player practice, shared-keyboar
 
 ## Game modes
 
-- **Single Player:** Practice by controlling both colors and taking turns on one device.
+- **Single Player:** Play as Coral against Sunshine, the built-in computer opponent.
 - **Local Two Player:** Play together in the same browser, taking turns with the same keyboard controls.
 - **Online:** Create a private room and share its six-digit code, or join another player's room.
 
 ## Controls
 
 - Click a column or use `1`–`7` to drop a disc in that column.
-- In local Two Player mode, both players use `1`–`7`, taking turns.
+- In local Two Player mode, both players use `1`–`7`, taking turns. Single Player also uses `1`–`7`.
 - In online mode, use the controls on your turn. The server checks whose turn it is and whether a move is valid.
 - Use **New Game** to start a rematch when available. Local games can be restarted from the end screen.
 
