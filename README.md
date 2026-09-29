@@ -1,4 +1,4 @@
-# Connect Four — 10X Arcade
+# Connect Four — Arcade
 
 A responsive Connect Four game with local single-player practice, shared-keyboard multiplayer, and online rooms. Connect four discs in a row horizontally, vertically, or diagonally to win.
 
